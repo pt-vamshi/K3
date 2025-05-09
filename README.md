@@ -24,6 +24,20 @@ kubectl get pods -n ingress-nginx
 
 Wait until the ingress-nginx-controller pod is in the Running state.
 
+##### Configure Nginx Ingress Controller for NodePort
+
+Since you're running on a bare-metal Ubuntu machine, the LoadBalancer service type might show `<pending>` for EXTERNAL-IP. To fix this, apply the NodePort configuration:
+
+```bash
+# Apply the NodePort configuration for Nginx Ingress Controller
+kubectl apply -f nginx-ingress-nodeport.yaml
+
+# Verify the service is now using NodePort
+kubectl get svc -n ingress-nginx
+```
+
+This will expose the Nginx Ingress Controller on your Ubuntu machine's IP address at ports 30080 (HTTP) and 30443 (HTTPS).
+
 #### 2. Install cert-manager
 
 If you don't have cert-manager installed, you can install it with:
@@ -84,6 +98,12 @@ Once the deployment is complete and the certificate is issued, you can access th
 
 https://dashboard.arcadiasmw.com
 
+If you're using the NodePort configuration, you'll need to specify the port in your browser:
+
+https://dashboard.arcadiasmw.com:30443
+
+Note: If you're using a self-signed certificate or Let's Encrypt staging environment, you might need to accept the security warning in your browser.
+
 ## DNS Configuration
 
 For the application to be accessible via dashboard.arcadiasmw.com, you need to configure your DNS to point this domain to your Ubuntu machine's IP address where K3s is installed.
@@ -143,9 +163,18 @@ If you can't access the application via dashboard.arcadiasmw.com:
    kubectl get svc -n ingress-nginx
    ```
    
-3. Ensure your firewall allows traffic on ports 80 and 443:
+3. Ensure your firewall allows traffic on the required ports:
    ```bash
+   # Check firewall status
    sudo ufw status
+   
+   # If using NodePort, allow traffic on ports 30080 and 30443
+   sudo ufw allow 30080/tcp
+   sudo ufw allow 30443/tcp
+   
+   # If using standard ports, allow traffic on ports 80 and 443
+   sudo ufw allow 80/tcp
+   sudo ufw allow 443/tcp
    ```
 
 ### Certificate Issues

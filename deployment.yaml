@@ -20,6 +20,15 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8501
+        env:
+        - name: STREAMLIT_SERVER_ENABLE_CORS
+          value: "true"
+        - name: STREAMLIT_SERVER_HEADLESS
+          value: "true"
+        - name: STREAMLIT_SERVER_PORT
+          value: "8501"
+        - name: STREAMLIT_SERVER_BASE_URL_PATH
+          value: "/"
         resources:
           limits:
             cpu: "2"

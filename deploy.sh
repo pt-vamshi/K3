@@ -12,6 +12,9 @@ if ! command -v kubectl &> /dev/null; then
     exit 1
 fi
 
+echo "=== Configuring Nginx Ingress Controller for NodePort ==="
+kubectl apply -f nginx-ingress-nodeport.yaml
+
 echo "=== Applying Kubernetes Manifests ==="
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
@@ -35,6 +38,10 @@ echo "Certificate:"
 kubectl get certificate dashboard-arcadiasmw-tls
 
 echo ""
+echo "=== Nginx Ingress Controller Status ==="
+kubectl get svc -n ingress-nginx
+
 echo "=== Deployment Complete ==="
 echo "You can access your application at: https://dashboard.arcadiasmw.com"
+echo "If using NodePort, access at: https://dashboard.arcadiasmw.com:30443"
 echo "Note: It may take a few minutes for the DNS and certificate to propagate."
