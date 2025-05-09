@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ptfd-app
+  labels:
+    app: ptfd-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ptfd-app
+  template:
+    metadata:
+      labels:
+        app: ptfd-app
+    spec:
+      containers:
+      - name: ptfd-app
+        image: ghcr.io/1308harshit/ptfd:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8501
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"
