@@ -13,7 +13,7 @@ spec:
   tls:
   - hosts:
     - dashboard.arcadiasmw.com
-    secretName: dashboard-vamshi-tls
+    secretName: dashboard-arcadiasmw-tls
   rules:
   - host: dashboard.arcadiasmw.com
     http:

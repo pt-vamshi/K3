@@ -72,7 +72,7 @@ kubectl get pods -l app=ptfd-app
 kubectl get svc ptfd-app
 
 # Check if the certificate is issued
-kubectl get certificate dashboard-vamshi-tls
+kubectl get certificate dashboard-arcadiasmw-tls
 
 # Check if the ingress is configured
 kubectl get ingress ptfd-app-ingress

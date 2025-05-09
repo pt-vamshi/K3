@@ -32,7 +32,7 @@ echo "Ingress:"
 kubectl get ingress ptfd-app-ingress
 
 echo "Certificate:"
-kubectl get certificate dashboard-vamshi-tls
+kubectl get certificate dashboard-arcadiasmw-tls
 
 echo ""
 echo "=== Deployment Complete ==="
