@@ -36,5 +36,5 @@ kubectl get certificate dashboard-vamshi-tls
 
 echo ""
 echo "=== Deployment Complete ==="
-echo "You can access your application at: https://dashboard.vamshi.com"
+echo "You can access your application at: https://dashboard.arcadiasmw.com"
 echo "Note: It may take a few minutes for the DNS and certificate to propagate."

@@ -6,7 +6,7 @@ This repository contains all the necessary files to deploy the PTFD application 
 
 - K3s cluster up and running on your Ubuntu machine
 - kubectl configured to communicate with your K3s cluster
-- Domain name (dashboard.vamshi.com) pointing to your Ubuntu machine's IP address where K3s is installed
+- Domain name (dashboard.arcadiasmw.com) pointing to your Ubuntu machine's IP address where K3s is installed
 
 ### Installing Required Components
 
@@ -82,11 +82,11 @@ kubectl get ingress ptfd-app-ingress
 
 Once the deployment is complete and the certificate is issued, you can access the application at:
 
-https://dashboard.vamshi.com
+https://dashboard.arcadiasmw.com
 
 ## DNS Configuration
 
-For the application to be accessible via dashboard.vamshi.com, you need to configure your DNS to point this domain to your Ubuntu machine's IP address where K3s is installed.
+For the application to be accessible via dashboard.arcadiasmw.com, you need to configure your DNS to point this domain to your Ubuntu machine's IP address where K3s is installed.
 
 ### 1. Find Your Ubuntu Machine's IP Address
 
@@ -106,14 +106,14 @@ You have two options:
 For local testing, you can modify your /etc/hosts file (or C:\Windows\System32\drivers\etc\hosts on Windows):
 
 ```
-<UBUNTU_MACHINE_IP> dashboard.vamshi.com
+<UBUNTU_MACHINE_IP> dashboard.arcadiasmw.com
 ```
 
 Replace `<UBUNTU_MACHINE_IP>` with your Ubuntu machine's IP address.
 
 #### Option 2: Configure DNS Provider
 
-If you own the domain vamshi.com, add an A record in your DNS provider's settings:
+If you own the domain arcadiasmw.com, add an A record in your DNS provider's settings:
 
 - Type: A
 - Name: dashboard
@@ -124,18 +124,18 @@ If you own the domain vamshi.com, add an A record in your DNS provider's setting
 
 ```bash
 # Verify that the domain resolves to your IP
-ping dashboard.vamshi.com
+ping dashboard.arcadiasmw.com
 ```
 
 ## Troubleshooting
 
 ### DNS Configuration Issues
 
-If you can't access the application via dashboard.vamshi.com:
+If you can't access the application via dashboard.arcadiasmw.com:
 
 1. Verify that your domain is correctly pointing to your Ubuntu machine's IP:
    ```bash
-   nslookup dashboard.vamshi.com
+   nslookup dashboard.arcadiasmw.com
    ```
 
 2. Check if the Nginx ingress controller is properly exposed:

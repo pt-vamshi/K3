@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - dashboard.vamshi.com
+    - dashboard.arcadiasmw.com
     secretName: dashboard-vamshi-tls
   rules:
-  - host: dashboard.vamshi.com
+  - host: dashboard.arcadiasmw.com
     http:
       paths:
       - path: /
