@@ -6,7 +6,9 @@ This repository contains all the necessary files to deploy the PTFD application 
 
 - K3s cluster up and running on your Ubuntu machine
 - kubectl configured to communicate with your K3s cluster
-- Domain name (dashboard.arcadiasmw.com) pointing to your Ubuntu machine's IP address where K3s is installed
+- Domain name (dashboard.arcadiasmw.com) pointing to your Ubuntu mac
+-
+- hine's IP address where K3s is installed
 
 ### Installing Required Components
 
