@@ -2,7 +2,7 @@
 
 This repository contains all the necessary files to deploy the PTFD application (ghcr.io/1308harshit/ptfd:latest) to K3s with Nginx ingress and SSL certificates.
 
-## Prerequisites
+## Prerequisites b  bb
 
 - K3s cluster up and running on your Ubuntu machine
 - kubectl configured to communicate with your K3s cluster
